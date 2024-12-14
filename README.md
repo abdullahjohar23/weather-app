@@ -1,16 +1,21 @@
-# weather_app
+# Weather App 🌦️
 
-A new Flutter project.
+A **real-time weather application** built using **Flutter**. This app provides up-to-date weather data, including current temperature, conditions, and hourly forecasts, fetched dynamically from an online weather API.
 
-## Getting Started
+## API Used from
+ - https://home.openweathermap.org/
 
-This project is a starting point for a Flutter application.
+## Features 🚀
+- **Real-time weather updates** 🌍.
+- Displays current weather conditions (temperature, sky status, etc.) 🌤️.
+- Converts temperature from Kelvin to Celsius 🌡️.
+- Hourly forecast with intuitive icons for weather conditions 🕒.
+- Clean and user-friendly interface with horizontal scrolling 📱.
 
-A few resources to get you started if this is your first Flutter project:
+## Tools & Technologies 🔧
+- **Flutter**: Cross-platform app development framework.
+- **Dart**: For app logic and state management.
+- **API Integration**: Fetches real-time weather data dynamically.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots 📸
+[Add screenshots of your app here]
