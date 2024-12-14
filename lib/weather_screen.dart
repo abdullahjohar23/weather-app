@@ -1,11 +1,11 @@
-import 'dart:convert';
 import 'dart:ui';
-import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class WeatherScreen extends StatefulWidget {
     const WeatherScreen({super.key});
@@ -230,9 +230,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     
                                     children: [
-                                        AdditionalInfoItem(icon: Icons.water_drop, label: 'Humidity', value: currentHumidity.toString()),
-                                        AdditionalInfoItem(icon: Icons.air, label: 'Wind Speed', value: currentWindSpeed.toString()),
-                                        AdditionalInfoItem(icon: Icons.beach_access, label: 'Pressure', value: currentPressure.toString()),
+                                        AdditionalInfoItem(icon: Icons.water_drop, label: 'Humidity', value: '${currentHumidity.toString()}%'),
+                                        AdditionalInfoItem(icon: Icons.air, label: 'Wind Speed', value: '${currentWindSpeed.toString()}m/s'),
+                                        AdditionalInfoItem(icon: Icons.beach_access, label: 'Pressure', value: '${currentPressure.toString()} hPa'),
                                     ],
                                 ),
                             ],

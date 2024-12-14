@@ -18,4 +18,5 @@ A **real-time weather application** built using **Flutter**. This app provides u
 - **API Integration**: Fetches real-time weather data dynamically.
 
 ## Screenshots 📸
-[Add screenshots of your app here]
+![Sample Output](https://github.com/user-attachments/assets/d1d113b9-73fc-4879-b5b9-6fba7a4ea32d)
+
