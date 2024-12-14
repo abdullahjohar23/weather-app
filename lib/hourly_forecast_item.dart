@@ -1,7 +1,7 @@
 // using separate class so that if we change 1 thing, all of the cards get the change
 import 'package:flutter/material.dart';
 
-class HourlyForecastItem extends StatelessWidget {                                                                                                                                                                                                                               
+class HourlyForecastItem extends StatelessWidget {
     final String time;
     final String temperature;
     final IconData icon;
@@ -35,7 +35,7 @@ class HourlyForecastItem extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                             ),
                             maxLines: 1, // this will keep the text in 1 line but the unfit texts will be hidden, that's why we need 'overflow'
-                            overflow: TextOverflow.ellipsis, // this is show ... just to let us know that there are moer texts
+                            overflow: TextOverflow.ellipsis, // this is show ... just to let us know that there are more texts
                         ),
                         
                         const SizedBox(height: 8),
@@ -48,4 +48,3 @@ class HourlyForecastItem extends StatelessWidget {
         );
     }
 }
-

@@ -18,9 +18,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
     // it's better to put the generic type for the Future
     // if you look at the json, it is a Map & its keys are Strings and values are multiple type (dynamic)
     late Future<Map<String, dynamic>> weatherRefresh;
+    late String theCity;
     Future<Map<String, dynamic>> getCurrentWeather() async {
         try {
             String cityName = 'Chittagong';
+            theCity = cityName;
             String apiKey = dotenv.env['API_KEY'] ?? 'API key not found';
             final res = await http.get(
                 Uri.parse(
@@ -100,7 +102,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     final currentWeatherData = theData['list'][0];
                     
                     // for main temperature section
-                    final currentTemp = currentWeatherData['main']['temp']; // finalize the temperature in the display
+                    // need to convert it to celcius
+                    final currentTemp = (currentWeatherData['main']['temp']) - 273.15; // finalize the temperature in the display
                     final currentSky = currentWeatherData['weather'][0]['main']; // finalize the sky type in the display
 
                     // for additional section
@@ -141,7 +144,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                                         children: [
                                                             // the displayed temperature
                                                             Text(
-                                                                '$currentTemp K', // display the real temperature                          
+                                                                '$theCity : ${currentTemp.toStringAsFixed(2)}° C', // display the real temperature                          
                                                                 style: const TextStyle(
                                                                     fontSize: 32,
                                                                     fontWeight: FontWeight.bold,
@@ -196,14 +199,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                         scrollDirection: Axis.horizontal, // to change the direction of the scroll, but still height issue because the time goes to next line; let's keep it in 1 line
                                         itemBuilder: (context, index) {
                                             final hourlyForecast = theData['list'][index+1];
-                                            final hourlyTemp = hourlyForecast['main']['temp'].toString();
+                                            final hourlyTemp = (hourlyForecast['main']['temp'] - 273.15).toStringAsFixed(2);
                                             final hourlySky = theData['list'][index+1]['weather'][0]['main'];                                                                                                                                               
 
                                             final time = DateTime.parse(hourlyForecast['dt_txt'].toString());
 
                                             return HourlyForecastItem(
                                                 time: DateFormat.j().format(time), // instead of "DateFormat.j()", you can use "DateFormat('j')"
-                                                temperature: hourlyTemp,
+                                                temperature: '$hourlyTemp° C',
                                                 icon: hourlySky == 'Clouds' || hourlySky == 'Rain' ? Icons.cloud : Icons.sunny,
                                             );
                                         },
