@@ -22,7 +22,9 @@ class AdditionalInfoItem extends StatelessWidget {
                 ),
                 
                 const SizedBox(height: 8),
+                
                 Text(label),
+                
                 const SizedBox(height: 8),
         
                 Text(
